@@ -16,8 +16,7 @@ build/
 .env.test.local
 .env.production.local
 
-# IDE files
-.vscode/
+# IDE files - REMOVED .vscode/ so launch.json is included
 .idea/
 *.swp
 *.swo

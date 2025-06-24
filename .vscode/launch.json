@@ -1,0 +1,117 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "🤖 Launch Unitree G1 Camera Viewer",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new",
+        "showReuseMessage": true,
+        "clear": false
+      },
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "name": "🔧 Debug Next.js Server",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/next/dist/bin/next",
+      "args": ["dev"],
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "console": "integratedTerminal",
+      "serverReadyAction": {
+        "pattern": "- Local:.*?(https?://.*?)\\s",
+        "uriFormat": "%s",
+        "action": "openExternally"
+      },
+      "skipFiles": ["<node_internals>/**"]
+    },
+    {
+      "name": "🌐 Launch with Browser Debug",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run dev",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "NODE_ENV": "development"
+      },
+      "postDebugTask": "open-browser",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      }
+    },
+    {
+      "name": "🚀 Production Build & Start",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm run build && npm start",
+      "cwd": "${workspaceFolder}",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "new"
+      }
+    },
+    {
+      "name": "📦 Install Dependencies",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "npm install",
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new"
+      }
+    },
+    {
+      "name": "🧹 Clean & Reinstall",
+      "type": "node-terminal",
+      "request": "launch",
+      "command": "rm -rf node_modules package-lock.json && npm install",
+      "cwd": "${workspaceFolder}",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": true,
+        "panel": "new"
+      }
+    }
+  ],
+  "compounds": [
+    {
+      "name": "🎯 Full Stack Debug",
+      "configurations": ["🔧 Debug Next.js Server"],
+      "stopAll": true,
+      "presentation": {
+        "hidden": false,
+        "group": "debug",
+        "order": 1
+      }
+    }
+  ]
+}
